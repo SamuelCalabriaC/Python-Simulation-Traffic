@@ -2,7 +2,9 @@ import random
 import time
 import threading
 import pygame
+import tkinter as tk
 
+#COLORES
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
 AZUL = (0, 0, 255)
@@ -10,11 +12,16 @@ VERDE = (0, 255, 0)
 ROJO = (255, 0, 0)
 VIOLETA = (255, 0, 255)
 GRIS = (150,152,154)
-
 GRIS2 = (170,160,150)
 GRIS3 = (190,130,80)
-
 ROSA = (255,192,203)
+
+#Centrar la pantalla del simulador
+x = 100
+y = 100
+import os
+os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x,y)
+
 
 class Interseccion():
     p1 = (450, 65)
@@ -807,26 +814,33 @@ class Cuarto1(Cuarto):
         self.pared_lista.remove(self.semaforo_samba)
         self.pared_lista.remove(self.semaforo_fruteria)
 
+class Data():
+
+    def __init__(self):
+        self.ventana = tk.Tk()
+        self.ventana.title("Data simulation")
+        self.ventana.geometry('475x398+680+69')
+        self.ventana.configure(background='black')
+        self.ventana.tkraise()
+        self.ventana.resizable(False,False)
+
+
 def main():
     """ Programa Principal """
-
+    ventanaData = Data()
     # Llamamos a esta función para que la biblioteca Pygame pueda autoiniciarse.
+    pantalla = pygame.display.set_mode((590, 400), 0, 32)
     pygame.init()
 
-    # Creamos una pantalla de 800x600
-    pantalla = pygame.display.set_mode([590, 400])
-
-    # Creamos el título de la ventana
-    pygame.display.set_caption('Práctica de IA')
-
+    pygame.display.set_caption('Simulation IA')
     num_coches = 3
-
     coches = []
 
 
     for x in range(0,num_coches):
-        salida = random.randint(0,len(Interseccion.listainicios))
+        salida = random.randint(0,len(Interseccion.listainicios)-1)
         coche2 = Protagonista(Interseccion.listainicios[salida][0],Interseccion.listainicios[salida][1])
+        del Interseccion.listainicios[salida]
         coches.append((coche2,salida))
 
 
