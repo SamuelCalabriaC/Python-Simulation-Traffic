@@ -4,13 +4,7 @@ import pygame
 import tkinter as tk
 import matplotlib
 matplotlib.use("TkAgg")
-import matplotlib.pyplot as plt
 
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from matplotlib.figure import Figure
-
-#COLORES
-from matplotlib.figure import Figure
 
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
@@ -906,7 +900,6 @@ def run():
         cont += 1
 
     pygame.quit()
-
 
 if __name__ == "__main__":
     thread = threading.Thread(target=run)
