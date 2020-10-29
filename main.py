@@ -1,10 +1,17 @@
 import random
-import time
 import threading
 import pygame
 import tkinter as tk
+import matplotlib
+matplotlib.use("TkAgg")
+import matplotlib.pyplot as plt
+
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.figure import Figure
 
 #COLORES
+from matplotlib.figure import Figure
+
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
 AZUL = (0, 0, 255)
@@ -199,7 +206,6 @@ class Protagonista(pygame.sprite.Sprite):
 
         #Cuando hay Tps se puede mover un poco
         elif (pos.__eq__(Interseccion.p14) or pos.__eq__((370,343)) or pos.__eq__((370,345))):
-            print(self.lastmove)
             if (self.lastmove==99):
                 #self.stop()
                 self.cambiovelocidad(0,-1)
@@ -531,7 +537,6 @@ class Protagonista(pygame.sprite.Sprite):
 
         #Nodos 13 y 10
         elif (pos.__eq__(Interseccion.p13) or pos.__eq__(Interseccion.p10)):
-            print(self.lastmove)
             if (self.lastmove.__eq__(4)):
                 self.stop()
                 self.cambiovelocidad(0,-1)
@@ -814,35 +819,22 @@ class Cuarto1(Cuarto):
         self.pared_lista.remove(self.semaforo_samba)
         self.pared_lista.remove(self.semaforo_fruteria)
 
-class Data():
-
-    def __init__(self):
-        self.ventana = tk.Tk()
-        self.ventana.title("Data simulation")
-        self.ventana.geometry('475x398+680+69')
-        self.ventana.configure(background='black')
-        self.ventana.tkraise()
-        self.ventana.resizable(False,False)
-
-
-def main():
+def run():
     """ Programa Principal """
-    ventanaData = Data()
+    #ventanaData = Data() with tk
     # Llamamos a esta función para que la biblioteca Pygame pueda autoiniciarse.
     pantalla = pygame.display.set_mode((590, 400), 0, 32)
     pygame.init()
-
     pygame.display.set_caption('Simulation IA')
     num_coches = 3
     coches = []
 
-
+    #Iniciacion de coches.
     for x in range(0,num_coches):
         salida = random.randint(0,len(Interseccion.listainicios)-1)
         coche2 = Protagonista(Interseccion.listainicios[salida][0],Interseccion.listainicios[salida][1])
         del Interseccion.listainicios[salida]
         coches.append((coche2,salida))
-
 
 
     desplazarsprites = pygame.sprite.Group()
@@ -860,7 +852,9 @@ def main():
 
 
     while not hecho:
-        print(coche2.getPos())
+
+
+
         cuarto_actual = cuarto1
         # --- Procesamiento de Eventos ---
 
@@ -915,4 +909,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    thread = threading.Thread(target=run)
+    thread.start()
+    thread2 = threading.Thread(exec(open("data.py").read()))
+    thread2.start()
