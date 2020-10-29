@@ -70,6 +70,8 @@ class Interseccion():
     p52 = (468, 365)
     pfinal = (555,345)
 
+    listainicios = [p48,p43,p44,p45,p14,p21,p38,p49,p50,p52]
+
 class Pared(pygame.sprite.Sprite):
     """Esta clase representa la barra inferior que controla el protagonista """
 
@@ -817,37 +819,29 @@ def main():
     # Creamos el título de la ventana
     pygame.display.set_caption('Práctica de IA')
 
-    # Creamos al objeto pala protagonista
-    #protagonista = Protagonista(20,20)
+    num_coches = 3
 
     coches = []
 
-    coche2 = Protagonista(Interseccion.p21[0],Interseccion.p21[1])
-    coche3 = Protagonista(Interseccion.p21[0],Interseccion.p21[1])
-    #coche4 = Protagonista(Interseccion.p21[0],Interseccion.p21[1])
 
-    coches.append(coche3)
-    #coches.append(coche4)
-    coches.append(coche2)
+    for x in range(0,num_coches):
+        salida = random.randint(0,len(Interseccion.listainicios))
+        coche2 = Protagonista(Interseccion.listainicios[salida][0],Interseccion.listainicios[salida][1])
+        coches.append((coche2,salida))
+
+
 
     desplazarsprites = pygame.sprite.Group()
 
     #desplazarsprites.add(protagonista)
 
     for x in coches:
-        if (type(x)==Protagonista):
-            desplazarsprites.add(x)
+        if (type(x[0])==Protagonista):
+            desplazarsprites.add(x[0])
 
     cuarto1 = Cuarto1()
-
-    cuarto_actual_no = 0
     reloj = pygame.time.Clock()
-
-    puntuacion = 0
-
     hecho = False
-
-    #cuarto1.update_add()
     cont = 0
 
 
@@ -856,46 +850,16 @@ def main():
         cuarto_actual = cuarto1
         # --- Procesamiento de Eventos ---
 
-        #Contadores para los semaforos.
-        if (cont == 2):
-            #cuarto1.update_del()
-            pass
-        elif(cont==480):
-            #cuarto1.update_add()
-            cont=0
-
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 hecho = True
-
             if evento.type == pygame.KEYDOWN:
-
-                """
-                if evento.key == pygame.K_LEFT:
-                    protagonista.cambiovelocidad(-1, 0)
-                if evento.key == pygame.K_RIGHT:
-                    protagonista.cambiovelocidad(1, 0)
-                if evento.key == pygame.K_UP:
-                    protagonista.cambiovelocidad(0, -1)
-                if evento.key == pygame.K_DOWN:
-                    protagonista.cambiovelocidad(0, 1)
-                """
                 if evento.key == pygame.K_1:
                     cuarto1.update_add()
                 if evento.key == pygame.K_2:
                     cuarto1.update_del()
 
             if evento.type == pygame.KEYUP:
-                """
-                if evento.key == pygame.K_LEFT:
-                    protagonista.cambiovelocidad(1, 0)
-                if evento.key == pygame.K_RIGHT:
-                    protagonista.cambiovelocidad(-1, 0)
-                if evento.key == pygame.K_UP:
-                    protagonista.cambiovelocidad(0, 1)
-                if evento.key == pygame.K_DOWN:
-                    protagonista.cambiovelocidad(0, -1)
-                """
                 if evento.key == pygame.K_1:
                     cuarto1.update_add()
                 if evento.key == pygame.K_2:
@@ -907,23 +871,18 @@ def main():
 
         # --- Lógica semaforos en cruze.
 
-
-        # --- Lógica del Juego ---
-        #protagonista.mover(cuarto_actual.pared_lista)
-
-
         # -- Algoritmo movimiento automatico
 
         for x in (coches):
-            if (type(x)==(Protagonista)):
-                a = threading.Thread(None, x.movimiento())
+            if (type(x[0])==(Protagonista)):
+                a = threading.Thread(None, x[0].movimiento())
                 a.start()
                 a.join()
                 #x.movimiento()
 
         for x in coches:
-            if (type(x)==(Protagonista)):
-                a = threading.Thread(None,x.mover(cuarto_actual.pared_lista))
+            if (type(x[0])==(Protagonista)):
+                a = threading.Thread(None,x[0].mover(cuarto_actual.pared_lista))
                 a.start()
                 a.join()
                 #x.mover(cuarto_actual.pared_lista)
