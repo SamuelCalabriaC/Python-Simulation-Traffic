@@ -76,7 +76,7 @@ class Interseccion():
     p50 = (20, 83)
     p51 = (450, 365)
     p52 = (468, 365)
-    pfinal = (555,345)
+    pfinal = (555,328)
 
     listainicios = [p48,p43,p44,p45,p14,p21,p38,p49,p50,p52]
 
@@ -115,7 +115,7 @@ class Protagonista(pygame.sprite.Sprite):
 
         # Establecemos el alto y largo
         self.image = pygame.Surface([15, 15])
-        self.image.fill((0,166,214))
+        self.image.fill(ROJO)
 
         # Establece como origen la esquina superior izquierda.
         self.rect = self.image.get_rect()
@@ -174,7 +174,7 @@ class Protagonista(pygame.sprite.Sprite):
     #Derecha 4
     def movimiento(self):
         pos = self.getPos()
-
+        print(pos)
         if (pos.__eq__(Interseccion.pfinal)):
             self.lastmove = 99
             self.stop()
@@ -663,7 +663,6 @@ class Cuarto():
 class Cuarto1(Cuarto):
     """Esto crea todas las paredes del cuarto 1"""
     def __init__(self):
-
         #Cruze cap
         self.semaforo_fruteria = Pared(140,65,2,15,ROJO)
         self.semaforo_cris = Pared(80,65,2,15,ROJO)
@@ -698,6 +697,10 @@ class Cuarto1(Cuarto):
         self.semaforo_maragalltelefonica = Pared(450,326,15,2,ROJO)
         self.semaforo_maragalltelefonicaop = Pared(468,343,15,2,ROJO)
 
+        self.semaforos = [self.semaforo_fruteria,self.semaforo_maragalltelefonicaop,self.semaforo_maragalltelefonica,self.semaforo_colemaragall, self.semaforo_tajoanais
+                          ,self.semaforo_maragallpunticoma, self.semaforo_samba,self.semaforo_dantecmaragall,self.semaforo_maragallcondis,self.semaforo_maragallcondisop,
+                          self.semaforo_dantecolegio, self.semaforo_colegiodante, self.semaforo_bajadadelaplanainicio, self.semaforo_dantebajadadelaplana, self.semaforo_bajadadelaplana,
+                          self.semaforo_despueschino, self.semaforo_subidacap, self.semaforo_cap, self.semaforo_cris]
 
 
         super().__init__()
@@ -731,7 +734,7 @@ class Cuarto1(Cuarto):
                    [20, 80, 45, 3, NEGRO],  # DISCONTINUA CRUZE ARRIBA IZQUIERDA
 
                     [483, 343, 87, 37, GRIS],  # MARAGALL DERECHA LUISMI
-                   [483, 323, 72, 20, ROSA],  # MARAGALL DERECHA LUISMI
+                   [483, 323, 72, 20, GRIS],  # MARAGALL DERECHA LUISMI
                    [483, 268, 72, 40, GRIS],  # MARAGALL DERECHA LUISMI
 
                    [140,98,25,27,GRIS], #PEQUEÑO IZQUIERDA
@@ -742,7 +745,7 @@ class Cuarto1(Cuarto):
                    [285,20,165,45,GRIS], #ENTRADA METRO IBIZA
                    [483, 20, 87, 45, GRIS2],  #SAMBA
 
-                   [483, 98, 72, 100, ROSA],  # PUNT I COMA
+                   [483, 98, 72, 100, GRIS],  # PUNT I COMA
                    [483, 213, 72, 60, GRIS],  # PUNT I COMA
 
 
@@ -757,13 +760,13 @@ class Cuarto1(Cuarto):
 
                    [305,268,65,60,GRIS],  #INVENTADO DESPUES DEL COLEGIO
 
-                   [385,268,65,60,ROSA], #TRASTEVERE
+                   [385,268,65,60,GRIS], #TRASTEVERE
 
-                   [130,313,80,67,GRIS3],  #ESCALON 1
+                   [130,313,80,67,GRIS2],  #ESCALON 1
                    [210,328,80,52,GRIS],  #ESCALON 2
                    [290,343,80,37,GRIS2],  #ESCALON 3
                    [370,358,80,22,GRIS],  #ESCALON 4
-                   [385,343,65,15,ROSA]
+                   [385,343,65,15,GRIS]
                    ]
 
         # Iteramos a través de la lista. Creamos la pared y la añadimos a la lista.
@@ -830,10 +833,7 @@ def run():
         del Interseccion.listainicios[salida]
         coches.append((coche2,salida))
 
-
     desplazarsprites = pygame.sprite.Group()
-
-    #desplazarsprites.add(protagonista)
 
     for x in coches:
         if (type(x[0])==Protagonista):
@@ -842,12 +842,8 @@ def run():
     cuarto1 = Cuarto1()
     reloj = pygame.time.Clock()
     hecho = False
-    cont = 0
-
 
     while not hecho:
-
-
 
         cuarto_actual = cuarto1
         # --- Procesamiento de Eventos ---
@@ -867,7 +863,6 @@ def run():
                 if evento.key == pygame.K_2:
                     cuarto1.update_del()
 
-        #Movimientodecoches
 
 
 
@@ -877,16 +872,13 @@ def run():
 
         for x in (coches):
             if (type(x[0])==(Protagonista)):
-                a = threading.Thread(None, x[0].movimiento())
-                a.start()
-                a.join()
+                x[0].movimiento()
+
                 #x.movimiento()
 
         for x in coches:
             if (type(x[0])==(Protagonista)):
-                a = threading.Thread(None,x[0].mover(cuarto_actual.pared_lista))
-                a.start()
-                a.join()
+                x[0].mover(cuarto_actual.pared_lista)
                 #x.mover(cuarto_actual.pared_lista)
 
 
@@ -895,9 +887,7 @@ def run():
         desplazarsprites.draw(pantalla)
         cuarto_actual.pared_lista.draw(pantalla)
         pygame.display.flip()
-
         reloj.tick(60)
-        cont += 1
 
     pygame.quit()
 
