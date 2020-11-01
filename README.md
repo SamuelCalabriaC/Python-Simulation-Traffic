@@ -16,6 +16,10 @@ The variables to be used will be:
 3. A random range passersby variable depending on the actual traffic of the street.
 4. The actual change time of the traffic lights itself.
 
-<p align="center">
+## Initial Simulation Proposal and Maps real position, Horta (08031).
+<p align="center"><
+  <br><br>
   <img src=/image/GithubSimulation.JPG alt="Initial Simulation Proposal"/>
+  <br><br>
+  <img src=/image/RealPosition.JPG alt="Maps Image"/>
 </p>
