@@ -17,7 +17,7 @@ The variables to be used will be:
 4. The actual change time of the traffic lights itself.
 
 ## Initial Simulation Proposal and Maps real position, Horta (08031).
-<p align="center"><
+<p align="center">
   <br><br>
   <img src=/image/GithubSimulation.JPG alt="Initial Simulation Proposal"/>
   <br><br>
