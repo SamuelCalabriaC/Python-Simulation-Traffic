@@ -15,15 +15,7 @@ The variables to be used will be:
 2. Zone's own transit network.
 3. A random range passersby variable depending on the actual traffic of the street.
 4. The actual change time of the traffic lights itself.
-## Real area in Barcelona, 08031.
-  <br><br>
 
 <p align="center">
-  <img src=/image/RealPosition.JPG>
-</p>
-## Initial proposal of simulation
-  <br><br>
-  
-<p align="center">
-  <img src=/image/GithubSimulation.JPG>
+  <img src=/image/GithubSimulation.JPG alt="Initial Simulation Proposal"/>
 </p>
