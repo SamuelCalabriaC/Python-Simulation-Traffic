@@ -10,7 +10,7 @@ def graph():
 
 while True:
 
-    pullData = open("data.txt","r").read()
+    pullData = open("data/data.txt", "r").read()
 
     dataList = pullData.split('\n')
 
@@ -26,7 +26,7 @@ while True:
 
     def animate(i):
         x_index.append(next(index))
-        a = open('data.txt','r').read()
+        a = open('data/data.txt', 'r').read()
         lineas = a.split('\n')
 
         #Settings of graph
