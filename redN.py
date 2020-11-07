@@ -9,5 +9,11 @@ import matplotlib.pyplot as plt
 #from keras.layers import Dense, Activation, Input, Dropout, Convolution2D, MaxPooling2D, Flatten
 
 #Data
-data = pd.read_csv('data/dataexc.csv')
-data.sample(5)
+data = pd.read_excel('./data/dataexc.xlsx')
+data = data.rename_axis(None
+                        )
+print(data.sample(5))
+print(list(data))
+
+b = data['nCoches']
+print(b[0:5])
