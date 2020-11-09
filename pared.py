@@ -45,3 +45,29 @@ class Pared(pygame.sprite.Sprite):
             value = abs(self.nPeatones*self.tPeatones/(60-self.ultimocambio))
             if value > 2.4: return 1
             else: return 0
+
+    def set_nCoches(self,n):
+        self.nCoches = n
+    def set_tCoches(self,n):
+        self.tCoches = n
+    def set_nSalientes(self, n):
+            self.nSalientes = n
+    def set_nPeatones(self,n):
+        self.nPeatones = n
+    def set_tPeatones(self,n):
+        self.tPeatones = n
+    def set_ultimoCambio(self,n):
+        self.ultimocambio = n
+    def setRojo(self,n):
+        self.rojo = n
+
+    def get_nCoches(self):
+        return self.nCoches
+    def get_tCoches(self):
+        return self.tCoches
+    def get_nPeatones(self):
+        return self.nPeatones
+    def get_tPeatones(self):
+        return self.tPeatones
+    def get_ultimoCambio(self):
+        return self.ultimocambio
