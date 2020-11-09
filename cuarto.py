@@ -148,3 +148,71 @@ class Cuarto1(Cuarto):
                 self.pared_lista.remove(x)
                 x.ultimocambio = 0
                 x.rojo = 0
+
+    def setSemaforos(self):
+        from random import randint
+        Cuarto1.semaforo_fruteria.set_nCoches(randint(0,2))
+        Cuarto1.semaforo_fruteria.set_nPeatones(randint(0,5))
+        Cuarto1.semaforo_fruteria.set_nSalientes(1.2)
+
+        Cuarto1.semaforo_cris.set_nCoches(randint(0,1))
+        Cuarto1.semaforo_cris.set_nSalientes(1.2)
+
+        Cuarto1.semaforo_cap.set_nCoches(randint(0,1))
+        Cuarto1.semaforo_cap.set_nSalientes(1.2)
+
+        Cuarto1.semaforo_subidacap.setPeatones(randint(0,5))
+        Cuarto1.semaforo_subidacap.nSalientes(1.1)
+
+        # cruze bajada de la plana
+        Cuarto1.semaforo_bajadadelaplana.set_nCoches(randint(0,2))
+        Cuarto1.semaforo_bajadadelaplana.set_nSalientes(1)
+
+        Cuarto1.semaforo_despueschino.set_nCoches(randint(0,5))
+        Cuarto1.semaforo_despueschino.set_nSalientes(1.4)
+
+        # cruze dante bajada
+        Cuarto1.semaforo_bajadadelaplanainicio.set_nPeatones(randint(0,5))
+        Cuarto1.semaforo_bajadadelaplanainicio.set_nSalientes(1.2)
+
+        Cuarto1.semaforo_dantebajadadelaplana.set_nCoches(randint(0,5))
+        Cuarto1.semaforo_dantebajadadelaplana.set_nPeatones(randint(0,5))
+
+        # cruze colegio
+        Cuarto1.semaforo_dantecolegio.set_nCoches(randint(0,3))
+        Cuarto1.semaforo_dantecolegio.set_nPeatones(randint(0, 6))
+
+        Cuarto1.semaforo_colegiodante.set_nCoches(randint(0,1))
+        Cuarto1.semaforo_colegiodante.set_nPeatones(randint(0, 4))
+
+        # CRUZE DANTE MARAGALL
+        Cuarto1.semaforo_dantecmaragall.set_nCoches(randint(0,8))
+        Cuarto1.semaforo_dantecmaragall.set_nPeatones(randint(0, 3))
+        Cuarto1.semaforo_dantecmaragall.set_nSalientes(1.2)
+
+        Cuarto1.semaforo_maragallcondis.set_nCoches(randint(0,6))
+        Cuarto1.semaforo_maragallcondis.set_nSalientes(1.3)
+
+        Cuarto1.semaforo_maragallcondisop.set_nCoches(randint(0,8))
+        Cuarto1.semaforo_maragallcondisop.set_nSalientes(1.2)
+
+        # cruze dante tajo
+        Cuarto1.semaforo_maragallpunticoma.set_nCoches(randint(0,8))
+        Cuarto1.semaforo_maragallpunticoma.set_nSalientes(1.2)
+
+        Cuarto1.semaforo_tajoanais.set_nCoches(randint(0,7))
+        Cuarto1.semaforo_tajoanais.set_nSalientes(1.2)
+
+        Cuarto1.semaforo_samba.set_nCoches(randint(0,5))
+        Cuarto1.semaforo_samba.set_nSalientes(1.2)
+
+        # CRUZE GRANOLLERS/MARAGALL
+        Cuarto1.semaforo_colemaragall.set_nCoches(randint(0,5))
+        Cuarto1.semaforo_colemaragall.set_nPeatones(randint(0,9))
+        Cuarto1.semaforo_colemaragall.set_nSalientes(1.2)
+
+        Cuarto1.semaforo_maragalltelefonica.set_nCoches(randint(0,2))
+        Cuarto1.semaforo_maragalltelefonica.set_nSalientes(1.1)
+
+        Cuarto1.semaforo_maragalltelefonicaop.set_nCoches(randint(0,1))
+        Cuarto1.semaforo_maragalltelefonicaop.set_nSalientes(1.1)

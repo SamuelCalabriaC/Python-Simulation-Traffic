@@ -32,7 +32,7 @@ def setParamsSemafors(Cuarto1):
     pass
 
 
-def actParamsSemafors(Cuarto1):
+def actParamsSemafors(cuarto1):
     pass
 
 
@@ -60,7 +60,11 @@ def run():
         if (type(x[0])==Protagonista):
             desplazarsprites.add(x[0])
 
+    #Iniciar el cuarto
     cuarto1 = Cuarto1()
+    #Iniciar los semaforos
+    cuarto1.setSemaforos()
+
     reloj = pygame.time.Clock()
     hecho = False
 
@@ -68,9 +72,7 @@ def run():
     setParamsSemafors(Cuarto1)
 
     while not hecho:
-
         cuarto_actual = cuarto1
-        # --- Procesamiento de Eventos ---
 
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
@@ -78,31 +80,22 @@ def run():
             if evento.type == pygame.KEYDOWN:
                 if evento.key == pygame.K_1:
                     cuarto1.update_semaforos()
-
-
             if evento.type == pygame.KEYUP:
                 if evento.key == pygame.K_1:
                     cuarto1.update_semaforos()
 
         # --- Lógica semaforos en cruze.
 
-        # -- Algoritmo movimiento automatico
-
         for x in (coches):
             if (type(x[0])==(Protagonista)):
                 x[0].movimiento()
 
-                #x.movimiento()
-
         for x in coches:
             if (type(x[0])==(Protagonista)):
                 x[0].mover(cuarto_actual.pared_lista)
-                #x.mover(cuarto_actual.pared_lista)
-
 
         #Crear Parametros semaforos
-        actParamsSemafors(Cuarto1)
-
+        actParamsSemafors(cuarto1)
 
         # --- Dibujamos ---
         pantalla.fill(BLANCO)
