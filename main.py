@@ -114,10 +114,9 @@ def run():
     pygame.quit()
 
 if __name__ == "__main__":
-
     thread = threading.Thread(exec(open("redN.py").read()))
     thread.start()
-    #thread = threading.Thread(target=run)
-    #thread.start()
-    #thread2 = threading.Thread(exec(open("data.py").read()))
-    #thread2.start()
+    thread1 = threading.Thread(target=run)
+    thread1.start()
+    thread2 = threading.Thread(exec(open("data.py").read()))
+    thread2.start()
