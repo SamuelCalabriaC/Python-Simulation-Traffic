@@ -1,4 +1,6 @@
 import pygame
+import numpy as np
+
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
 AZUL = (0, 0, 255)
@@ -28,6 +30,7 @@ class Pared(pygame.sprite.Sprite):
         self.rect.y = y
         self.rect.x = x
 
+        self.t1Coche = 0
         self.nCoches = 0
         self.tCoches = 0
         self.nSalientes = 1
@@ -49,18 +52,39 @@ class Pared(pygame.sprite.Sprite):
 
     def set_nCoches(self,n):
         self.nCoches = n
+
     def set_tCoches(self,n):
         self.tCoches = n
+
+    def set_t1Coches(self,n):
+        self.t1Coche = 1
+
     def set_nSalientes(self, n):
             self.nSalientes = n
+
     def set_nPeatones(self,n):
         self.nPeatones = n
+
     def set_tPeatones(self,n):
         self.tPeatones = n
+
     def set_ultimoCambio(self,n):
         self.ultimocambio = n
+
     def setRojo(self,n):
         self.rojo = n
+
+    def get_Rojo(self):
+        return self.rojo
+
+    def get_Values(self):
+        return np.array([[self.get_nCoches(),self.get_tCoches(),self.get_t1Coche(),self.get_nSalientes(),self.get_nPeatones(), self.get_tPeatones(), self.get_ultimoCambio() ]])
+        #predictionData = np.array([[1,10,40,1.1,80,30,12]])
+
+    def get_nSalientes(self):
+        return self.nSalientes
+    def get_t1Coche(self):
+        return self.t1Coche
 
     def get_nCoches(self):
         return self.nCoches

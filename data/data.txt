@@ -1,8 +1,4 @@
-CarrerTajo 0 30
-CarrerMaragall 2 0 85
-TajoMercado 31 51 2 0
-MaragallLuismiPre10 12 45 6
-MaragallLuismiPost10 23 32 11 2
-MaragallPre9 23 11 12 1 1 11 11
-MargallPost12 45 5 65 2 1
-Dante18 26 35 48 21 14
+PeatonesDante 4
+CochesDante 3
+PeatonesMateu 3
+CochesMateu 1

@@ -88,7 +88,6 @@ class Protagonista(pygame.sprite.Sprite):
     #Derecha 4
     def movimiento(self):
         pos = self.getPos()
-        print(pos)
 
         if (pos.__eq__(Interseccion.pfinal)):
             self.lastmove = 99
