@@ -64,8 +64,8 @@ def actValuesSemafors(cuarto1):
 def getPredictionSemafors(cuarto1):
     a = neuralnet.prediction(cuarto1.semaforo_dantecolegio.get_Values())
     b = neuralnet.prediction(cuarto1.semaforo_colegiodante.get_Values())
-    print("Valores Dante: "+str(cuarto1.semaforo_dantecolegio.get_Values())+"with value -> "+str(a))
-    print("Valores Cole"+str(cuarto1.semaforo_colegiodante.get_Values())+"with value ->"+str(b))
+    print("Valores Dante: "+str(cuarto1.semaforo_dantecolegio.get_Values())+" with value -> "+str(a))
+    print("Valores Cole"+str(cuarto1.semaforo_colegiodante.get_Values())+" with value ->"+str(b))
     print()
     if a > b:
         cuarto1.semaforo_dantecolegio.setRojo(0)
