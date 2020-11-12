@@ -2,14 +2,12 @@ import random
 import threading
 import pygame
 from protagonista import Protagonista
-import matplotlib
+
 from interseccion import Interseccion
 from cuarto import Cuarto1
 import os
-import numpy as np
 from redN import Neural_net
 
-matplotlib.use("TkAgg")
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
 AZUL = (0, 0, 255)
@@ -93,15 +91,7 @@ def actSemafors(cuarto1):
         pared.set_t1Coches(0)
     return 0
 
-def initdata():
-    with open('data/data.txt','w') as file:
-        file.write("PeatonesDante "+str(0)+"\n")
-        file.write("CochesDante " + str(0)+"\n")
-        file.write("PeatonesMateu " + str(0)+ "\n")
-        file.write("CochesMateu " + str(0)+ "\n")
-
 def run():
-    initdata()
     """ Programa Principal """
     # ventanaData = Data() with tk
     # Llamamos a esta función para que la biblioteca Pygame pueda autoiniciarse.

@@ -22,11 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2b48b2e-0a28-4d50-ab83-8004ab50866b" name="Default Changelist" comment="Refractor Print">
+    <list default="true" id="f2b48b2e-0a28-4d50-ab83-8004ab50866b" name="Default Changelist" comment="Refractor Data Initialization">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/redN.py" beforeDir="false" afterPath="$PROJECT_DIR$/redN.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/data.py" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -248,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605184363810</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Refractor Data Initialization">
+      <created>1605185475355</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1605185475355</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -280,13 +285,14 @@
     <MESSAGE value="Default Params Semaforo" />
     <MESSAGE value="Changes into Paralel Configuration Run" />
     <MESSAGE value="Refractor Print" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refractor Print" />
+    <MESSAGE value="Refractor Data Initialization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refractor Data Initialization" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="530" y="103" width="1092" height="930" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605183158054">
+    <state x="530" y="103" width="1092" height="930" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605204170805">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="530" y="103" width="1092" height="930" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605183158054" />
+    <state x="530" y="103" width="1092" height="930" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605204170805" />
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1604935892453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -303,50 +309,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="335" key="FileChooserDialogImpl/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605182638078" />
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1605185281279">
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1605210236186">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185281279" />
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605210236186" />
     <state width="1322" height="170" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.156.1360.728@1920.156.1360.728" timestamp="1604270230185" />
-    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1605185281279">
+    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1605210236186">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185281279" />
+    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605210236186" />
     <state width="1322" height="170" key="GridCell.Tab.0.center/0.0.1920.1040/1920.156.1360.728@1920.156.1360.728" timestamp="1604270230185" />
-    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1605185281279">
+    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1605210236186">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185281279" />
+    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605210236186" />
     <state width="1322" height="170" key="GridCell.Tab.0.left/0.0.1920.1040/1920.156.1360.728@1920.156.1360.728" timestamp="1604270230185" />
-    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1605185281279">
+    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1605210236186">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185281279" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605210236186" />
     <state width="1322" height="170" key="GridCell.Tab.0.right/0.0.1920.1040/1920.156.1360.728@1920.156.1360.728" timestamp="1604270230185" />
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1605183875539">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1605185577246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605183875539" />
-    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1605183875539">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185577246" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1605185577246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605183875539" />
-    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1605183875539">
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185577246" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1605185577245">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605183875539" />
-    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1605183875539">
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185577245" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1605185577246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605183875539" />
-    <state x="606" y="178" key="SettingsEditor" timestamp="1605182373220">
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185577246" />
+    <state x="606" y="178" key="SettingsEditor" timestamp="1605205049571">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="606" y="178" key="SettingsEditor/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605182373220" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605184333413">
+    <state x="606" y="178" key="SettingsEditor/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605205049571" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605185478579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605184333413" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185478579" />
     <state x="2311" y="333" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.156.1360.728@1920.156.1360.728" timestamp="1604270327928" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604574769575">
       <screen x="0" y="0" width="1920" height="1040" />

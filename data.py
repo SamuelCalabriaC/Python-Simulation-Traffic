@@ -10,9 +10,16 @@ def graph():
     house = np.random.normal(200000,20000,2000)
     plt.hist(house,200)
     plt.show()
+    
+def initdata():
+    with open('data/data.txt','w') as file:
+        file.write("PeatonesDante "+str(0)+"\n")
+        file.write("CochesDante " + str(0)+"\n")
+        file.write("PeatonesMateu " + str(0)+ "\n")
+        file.write("CochesMateu " + str(0)+ "\n")
 
 while True:
-
+    initdata()
     pullData = open("data/data.txt", "r").read()
     dataList = pullData.split('\n')
 
