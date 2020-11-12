@@ -44,7 +44,7 @@ class Neural_net():
         graph = tf.compat.v1.get_default_graph
         set_session(session)
         model = Sequential()
-        model.add(Dense(150,input_dim=7,activation='relu'))
+        model.add(Dense(169,input_dim=7,activation='relu'))
         model.add(Dense(130,activation='sigmoid'))
         model.add(Dense(100,activation='sigmoid'))
         model.add(Dense(50,activation='sigmoid'))
@@ -57,7 +57,6 @@ class Neural_net():
         model._make_predict_function()
         self.model = model
     def prediction(self,predictionData):
-        #Las predicciones no son totalmente malas
         #predictionData = np.array([[1,10,40,1.1,80,30,12]])
         a = self.model.predict(predictionData)
         return a

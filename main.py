@@ -54,7 +54,7 @@ def actValuesSemafors(cuarto1):
                 semafor.tPeatones += 1
             if semafor.nPeatones == 0:
                 semafor.tPeatones = 0
-            if semafor.nCoches > 0:
+            if semafor.nCoches > 1:
                 semafor.nCoches -= 2
             if semafor.tCoches > 1:
                 semafor.tCoches -= 2
@@ -93,8 +93,15 @@ def actSemafors(cuarto1):
         pared.set_t1Coches(0)
     return 0
 
+def initdata():
+    with open('data/data.txt','w') as file:
+        file.write("PeatonesDante "+str(0)+"\n")
+        file.write("CochesDante " + str(0)+"\n")
+        file.write("PeatonesMateu " + str(0)+ "\n")
+        file.write("CochesMateu " + str(0)+ "\n")
 
 def run():
+    initdata()
     """ Programa Principal """
     # ventanaData = Data() with tk
     # Llamamos a esta función para que la biblioteca Pygame pueda autoiniciarse.
