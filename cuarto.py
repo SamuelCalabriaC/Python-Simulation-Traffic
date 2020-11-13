@@ -66,6 +66,12 @@ class Cuarto1(Cuarto):
                           self.semaforo_dantecolegio, self.semaforo_colegiodante, self.semaforo_bajadadelaplanainicio, self.semaforo_dantebajadadelaplana, self.semaforo_bajadadelaplana,
                           self.semaforo_despueschino, self.semaforo_subidacap, self.semaforo_cap, self.semaforo_cris]
 
+        self.semaforos_sin_gente = [self.semaforo_cris, self.semaforo_fruteria, self.semaforo_cap,self.semaforo_despueschino,self.semaforo_tajoanais, self.semaforo_maragalltelefonica,
+                                    self.semaforo_maragalltelefonicaop, self.semaforo_maragallcondisop, self.semaforo_maragallcondis, self.semaforo_maragallpunticoma, self.semaforo_samba]
+
+        self.semaforos_con_gente = [self.semaforo_subidacap, self.semaforo_colemaragall,self.semaforo_dantecmaragall,
+                                    self.semaforo_dantecolegio, self.semaforo_colegiodante, self.semaforo_bajadadelaplanainicio, self.semaforo_dantebajadadelaplana,
+                                    self.semaforo_bajadadelaplana, self.semaforo_subidacap]
 
         super().__init__()
         # Crear las paredes. (x_pos, y_pos, largo, alto)

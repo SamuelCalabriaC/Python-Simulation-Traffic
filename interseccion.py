@@ -52,4 +52,4 @@ class Interseccion():
     p52 = (468, 365)
     pfinal = (555,328)
 
-    listainicios = [p48,p43,p44,p45,p14,p21,p38,p49,p50,p52]
+    listainicios = [p48,p43,p44,p14,p21,p38,p49,p50,p52]

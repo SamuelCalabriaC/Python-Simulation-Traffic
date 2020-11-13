@@ -26,10 +26,11 @@ x = 100
 y = 100
 os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x, y)
 
+
 def actValuesSemafors(cuarto1):
-    for semafor in cuarto1.semaforos:
-        if semafor.get_Rojo()==1:
-            semafor.nCoches += random.randint(0,3)
+    for semafor in cuarto1.semaforos_con_gente:
+        if semafor.get_Rojo() == 1:
+            semafor.nCoches += random.randint(0, 3)
             if semafor.nCoches > 0:
                 semafor.tCoches += 2
                 semafor.t1Coche += 1
@@ -42,43 +43,165 @@ def actValuesSemafors(cuarto1):
                     semafor.t1Coche = 0
             semafor.ultimocambio += 1
             if semafor.nPeatones > 3:
-                semafor.nPeatones -= 3
+                semafor.nPeatones -= random.randint(2, 4)
             if semafor.tPeatones > 1:
                 semafor.tPeatones -= 1
         else:
             semafor.ultimocambio += 1
-            semafor.nPeatones += random.randint(0,5)
+            semafor.nPeatones += random.randint(0, 5)
             if semafor.nPeatones > 0:
                 semafor.tPeatones += 1
             if semafor.nPeatones == 0:
                 semafor.tPeatones = 0
-            if semafor.nCoches > 1:
-                semafor.nCoches -= 2
+
+            if semafor.nCoches > 2:
+                semafor.nCoches -= random.randint(1, 3)
+            elif 0 < semafor.nCoches < 2:
+                semafor.nCoches -= 1
+
             if semafor.tCoches > 1:
                 semafor.tCoches -= 2
             if semafor.t1Coche > 1:
                 semafor.t1Coche -= 1
 
+    for sem in cuarto1.semaforos_sin_gente:
+        if sem.get_Rojo() == 1:
+            sem.nCoches += random.randint(0, 3)
+            if sem.nCoches > 0:
+                sem.tCoches += 2
+                sem.t1Coche += 1
+            if sem.nCoches == 0:
+                if sem.tCoches > 5:
+                    sem.tCoches -= 5
+                    sem.t1Coche = 0
+                else:
+                    sem.tCoches = 0
+                    sem.t1Coche = 0
+        else:
+            if sem.nCoches > 2:
+                sem.nCoches -= random.randint(1, 3)
+            if sem.tCoches > 1:
+                sem.tCoches -= 2
+            if sem.t1Coche > 1:
+                sem.t1Coche -= 1
+
+
 def getPredictionSemafors(cuarto1):
-    a = neuralnet.prediction(cuarto1.semaforo_dantecolegio.get_Values())
-    b = neuralnet.prediction(cuarto1.semaforo_colegiodante.get_Values())
-    print("Valores Dante: "+str(cuarto1.semaforo_dantecolegio.get_Values())+" with value -> "+str(a))
-    print("Valores Cole"+str(cuarto1.semaforo_colegiodante.get_Values())+" with value ->"+str(b))
-    print()
-    if a > b:
+    # Dante Can Mateu
+    dantecanmateu = neuralnet.prediction(cuarto1.semaforo_dantecolegio.get_Values())
+    canmateudante = neuralnet.prediction(cuarto1.semaforo_colegiodante.get_Values())
+    # print("Valores Dante: "+str(cuarto1.semaforo_dantecolegio.get_Values())+" with value -> "+str(a))
+    # print("Valores Cole"+str(cuarto1.semaforo_colegiodante.get_Values())+" with value ->"+str(b))
+    # print()
+    if dantecanmateu > canmateudante:
         cuarto1.semaforo_dantecolegio.setRojo(0)
         cuarto1.semaforo_colegiodante.setRojo(1)
     else:
         cuarto1.semaforo_dantecolegio.setRojo(1)
         cuarto1.semaforo_colegiodante.setRojo(0)
+
+    # Bajada de la plana Dante
+    dantebajada = neuralnet.prediction(cuarto1.semaforo_dantebajadadelaplana.get_Values())
+    bajadadante = neuralnet.prediction(cuarto1.semaforo_bajadadelaplanainicio.get_Values())
+    if dantebajada > bajadadante:
+        cuarto1.semaforo_dantebajadadelaplana.setRojo(0)
+        cuarto1.semaforo_bajadadelaplanainicio.setRojo(1)
+    else:
+        cuarto1.semaforo_dantebajadadelaplana.setRojo(1)
+        cuarto1.semaforo_bajadadelaplanainicio.setRojo(0)
+
+    # Dante Maragall
+    dantemaragall = neuralnet.prediction(cuarto1.semaforo_dantecmaragall.get_Values())
+    maragalldante = neuralnet.prediction(cuarto1.semaforo_maragallcondis.get_Values())
+
+    if dantemaragall > 0.80 and dantemaragall > maragalldante:
+        cuarto1.semaforo_dantecmaragall.setRojo(0)
+        cuarto1.semaforo_maragallcondis.setRojo(1)
+        cuarto1.semaforo_maragallcondisop.setRojo(1)
+    else:
+        cuarto1.semaforo_dantecmaragall.setRojo(1)
+        cuarto1.semaforo_maragallcondis.setRojo(0)
+        cuarto1.semaforo_maragallcondisop.setRojo(0)
+
+    # Granollers Maragall
+    granollers = neuralnet.prediction(cuarto1.semaforo_colemaragall.get_Values())
+    # maragallTelefonica = neuralnet.prediction(cuarto1.semaforo_maragalltelefonica.get_Values())
+    # maragallOp = neuralnet.prediction(cuarto1.semaforo_maragalltelefonicaop.get_Values())
+    if granollers > 0.90:
+        cuarto1.semaforo_colemaragall.setRojo(0)
+        cuarto1.semaforo_maragalltelefonica.setRojo(1)
+        cuarto1.semaforo_maragalltelefonicaop.setRojo(1)
+    else:
+        cuarto1.semaforo_colemaragall.setRojo(1)
+        cuarto1.semaforo_maragalltelefonica.setRojo(0)
+        cuarto1.semaforo_maragalltelefonicaop.setRojo(0)
+
+    # Tajo Inicio
+
+    cap = neuralnet.prediction(cuarto1.semaforo_cap.get_Values())
+    subidacap = neuralnet.prediction(cuarto1.semaforo_subidacap.get_Values())
+    rieras = neuralnet.prediction(cuarto1.semaforo_cris.get_Values())
+
+    if subidacap > 0.90 and rieras < cap:
+        cuarto1.semaforo_cap.setRojo(0)
+        cuarto1.semaforo_cris.setRojo(1)
+        cuarto1.semaforo_subidacap.setRojo(0)
+    elif subidacap > 0.90 and rieras >= cap:
+        cuarto1.semaforo_cap.setRojo(1)
+        cuarto1.semaforo_cris.setRojo(0)
+        cuarto1.semaforo_subidacap.setRojo(0)
+    else:
+        cuarto1.semaforo_cap.setRojo(0)
+        cuarto1.semaforo_cris.setRojo(0)
+        cuarto1.semaforo_subidacap.setRojo(1)
+
+    # Tajo Bajada de la Plana
+
+    finalbajada = neuralnet.prediction(cuarto1.semaforo_bajadadelaplana.get_Values())
+    chino = neuralnet.prediction(cuarto1.semaforo_despueschino.get_Values())
+    fruteria = neuralnet.prediction(cuarto1.semaforo_fruteria.get_Values())
+
+    if finalbajada > 0.90:
+        if chino >= fruteria:
+            cuarto1.semaforo_bajadadelaplana.setRojo(0)
+            cuarto1.semaforo_despueschino.setRojo(0)
+            cuarto1.semaforo_fruteria.setRojo(1)
+        else:
+            cuarto1.semaforo_bajadadelaplana.setRojo(0)
+            cuarto1.semaforo_despueschino.setRojo(1)
+            cuarto1.semaforo_fruteria.setRojo(0)
+    else:
+        cuarto1.semaforo_bajadadelaplana.setRojo(1)
+        cuarto1.semaforo_despueschino.setRojo(0)
+        cuarto1.semaforo_fruteria.setRojo(0)
+
+    # Tajo Maragall
+    tajofinal = neuralnet.prediction(cuarto1.semaforo_tajoanais.get_Values())
+    maragallfinal = neuralnet.prediction(cuarto1.semaforo_maragallpunticoma.get_Values())
+    samba = neuralnet.prediction(cuarto1.semaforo_samba.get_Values())
+
+    if tajofinal >= maragallfinal and tajofinal >= samba:
+        cuarto1.semaforo_tajoanais.setRojo(0)
+        cuarto1.semaforo_maragallpunticoma.setRojo(1)
+        cuarto1.semaforo_samba.setRojo(1)
+    elif samba >= maragallfinal and samba >= tajofinal:
+        cuarto1.semaforo_tajoanais.setRojo(1)
+        cuarto1.semaforo_maragallpunticoma.setRojo(1)
+        cuarto1.semaforo_samba.setRojo(0)
+    else:
+        cuarto1.semaforo_tajoanais.setRojo(1)
+        cuarto1.semaforo_maragallpunticoma.setRojo(0)
+        cuarto1.semaforo_samba.setRojo(1)
+        
     return 0
 
+
 def escribirsemaforos(cuarto1):
-    with open('data/data.txt','w') as file:
+    with open('data/data.txt', 'w') as file:
         file.write("PeatonesDante "+str(cuarto1.semaforo_dantecolegio.nPeatones)+"\n")
         file.write("CochesDante " + str(cuarto1.semaforo_dantecolegio.nCoches)+"\n")
-        file.write("PeatonesMateu " + str(cuarto1.semaforo_colegiodante.nPeatones)+ "\n")
-        file.write("CochesMateu " + str(cuarto1.semaforo_colegiodante.nCoches)+ "\n")
+        file.write("PeatonesMateu " + str(cuarto1.semaforo_colegiodante.nPeatones) + "\n")
+        file.write("CochesMateu " + str(cuarto1.semaforo_colegiodante.nCoches) + "\n")
 
 
 def actSemafors(cuarto1):
@@ -90,6 +213,7 @@ def actSemafors(cuarto1):
         pared.set_ultimoCambio(0)
         pared.set_t1Coches(0)
     return 0
+
 
 def run():
     """ Programa Principal """
@@ -170,7 +294,7 @@ def run():
     pygame.quit()
 
 
-#Edit Configurations, Add new Paralel Configuration, data.py main.py
+# Edit Configurations, Add new Paralel Configuration, data.py main.py
 if __name__ == "__main__":
     thread1 = threading.Thread(target=run())
     thread1.start()

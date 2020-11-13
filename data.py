@@ -1,3 +1,4 @@
+import time
 from itertools import count
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,6 +21,7 @@ def initdata():
 
 while True:
     initdata()
+    time.sleep(15)
     pullData = open("data/data.txt", "r").read()
     dataList = pullData.split('\n')
 

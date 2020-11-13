@@ -1,4 +1,4 @@
-PeatonesDante 11
-CochesDante 5
-PeatonesMateu 3
-CochesMateu 0
+PeatonesDante 4
+CochesDante 7
+PeatonesMateu 0
+CochesMateu 3
