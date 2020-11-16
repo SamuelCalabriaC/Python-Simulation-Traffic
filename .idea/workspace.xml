@@ -22,13 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2b48b2e-0a28-4d50-ab83-8004ab50866b" name="Default Changelist" comment="Refractor Data Initialization">
+    <list default="true" id="f2b48b2e-0a28-4d50-ab83-8004ab50866b" name="Default Changelist" comment="Refractor pfinal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cuarto.py" beforeDir="false" afterPath="$PROJECT_DIR$/cuarto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interseccion.py" beforeDir="false" afterPath="$PROJECT_DIR$/interseccion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redN.py" beforeDir="false" afterPath="$PROJECT_DIR$/redN.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,18 +61,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/data.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Usuario\Desktop\IA_TRABAJO\pythonProject1\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Multirun.Paralel">
+  <component name="RunManager" selected="Multirun.Unnamed">
     <configuration name="Project" type="CompoundRunConfigurationType">
       <method v="2" />
     </configuration>
     <configuration name="Paralel" type="Multirun" factoryName="Multirun" separateTabs="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0">
+      <runConfiguration name="data" type="Python" />
+      <runConfiguration name="main" type="Python" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="Multirun" factoryName="Multirun" separateTabs="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0">
       <runConfiguration name="data" type="Python" />
       <runConfiguration name="main" type="Python" />
       <method v="2" />
@@ -87,7 +89,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Usuario\anaconda3\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\lluis\AppData\Local\Programs\Python\Python37\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -108,7 +110,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Usuario\anaconda3\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\lluis\AppData\Local\Programs\Python\Python37\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -124,6 +126,7 @@
     </configuration>
     <list>
       <item itemvalue="Compound.Project" />
+      <item itemvalue="Multirun.Unnamed" />
       <item itemvalue="Multirun.Paralel" />
       <item itemvalue="Python.data" />
       <item itemvalue="Python.main" />
@@ -300,10 +303,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="Refractor Data Initialization" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="530" y="103" width="1092" height="930" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605204170805">
+    <state x="388" y="13" width="1092" height="1002" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605527775074">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="530" y="103" width="1092" height="930" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605204170805" />
+    <state x="388" y="13" width="1092" height="1002" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605527775074" />
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1604935892453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -320,26 +324,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="335" key="FileChooserDialogImpl/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605182638078" />
-    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1605285618055">
+    <state width="0" height="0" key="GridCell.Tab.0.bottom" timestamp="1605529556740">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605285618055" />
     <state width="1322" height="170" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.156.1360.728@1920.156.1360.728" timestamp="1604270230185" />
-    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1605285618055">
+    <state width="0" height="0" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605529556740" />
+    <state width="0" height="0" key="GridCell.Tab.0.center" timestamp="1605529556740">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605285618055" />
     <state width="1322" height="170" key="GridCell.Tab.0.center/0.0.1920.1040/1920.156.1360.728@1920.156.1360.728" timestamp="1604270230185" />
-    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1605285618055">
+    <state width="0" height="0" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605529556740" />
+    <state width="0" height="0" key="GridCell.Tab.0.left" timestamp="1605529556740">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605285618055" />
     <state width="1322" height="170" key="GridCell.Tab.0.left/0.0.1920.1040/1920.156.1360.728@1920.156.1360.728" timestamp="1604270230185" />
-    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1605285618055">
+    <state width="0" height="0" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605529556740" />
+    <state width="0" height="0" key="GridCell.Tab.0.right" timestamp="1605529556740">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605285618055" />
     <state width="1322" height="170" key="GridCell.Tab.0.right/0.0.1920.1040/1920.156.1360.728@1920.156.1360.728" timestamp="1604270230185" />
+    <state width="0" height="0" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605529556740" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1605185577246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -356,10 +364,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605185577246" />
-    <state x="606" y="178" key="SettingsEditor" timestamp="1605205049571">
+    <state x="606" y="178" key="SettingsEditor" timestamp="1605527642391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="606" y="178" key="SettingsEditor/0.0.1920.1040/1920.156.1360.728@0.0.1920.1040" timestamp="1605205049571" />
+    <state x="606" y="178" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605527642391" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605185478579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

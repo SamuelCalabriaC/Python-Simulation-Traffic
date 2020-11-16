@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, accuracy_score
+#from sklearn.model_selection import train_test_split
+#from sklearn.metrics import classification_report, accuracy_score
 import tensorflow as tf
 
 from keras.models import Sequential
@@ -24,20 +24,9 @@ def extract_outputs():
     return data.iloc[:,7:8].values
 
 
-def config():
-    config = tf.ConfigProto(
-        device_count={'GPU': 1},
-        intra_op_parallelism_threads=1,
-        allow_soft_placement=True
-    )
-
-    config.gpu_options.allow_growth = True
-    config.gpu_options.per_process_gpu_memory_fraction = 0.6
-
 global graph
 class Neural_net():
     def __init__(self):
-        config()
         trainning_data = extract_inputs()
         target_data = extract_outputs()
         session = tf.compat.v1.Session
@@ -53,8 +42,8 @@ class Neural_net():
         model.add(Dense(1,activation='sigmoid'))
         model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
         model.fit(trainning_data,target_data,epochs=1000)
-        graph = tf.get_default_graph()
-        model._make_predict_function()
+        #graph = tf.get_default_graph()
+        model.make_predict_function()
         self.model = model
     def prediction(self,predictionData):
         #predictionData = np.array([[1,10,40,1.1,80,30,12]])
