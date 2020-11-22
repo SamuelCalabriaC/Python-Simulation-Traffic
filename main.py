@@ -85,6 +85,64 @@ def actValuesSemafors(cuarto1):
             if sem.t1Coche > 1:
                 sem.t1Coche -= 1
 
+def getSemaforosStatic(cuarto1):
+    listaCruces = [(cuarto1.semaforo_dantecolegio,cuarto1.semaforo_colegiodante),(cuarto1.semaforo_dantebajadadelaplana,cuarto1.semaforo_bajadadelaplanainicio),
+                   (cuarto1.semaforo_dantecmaragall,cuarto1.semaforo_maragallcondis),[cuarto1.semaforo_colemaragall],
+                   (cuarto1.semaforo_cap,cuarto1.semaforo_subidacap,cuarto1.semaforo_cris),(cuarto1.semaforo_bajadadelaplana,cuarto1.semaforo_despueschino,cuarto1.semaforo_fruteria),
+                   (cuarto1.semaforo_tajoanais, cuarto1.semaforo_tajoanais, cuarto1.semaforo_samba)]
+    for i in listaCruces:
+        print(i)
+        if(len(i) == 2):
+            calle1Cruce1 = i[0].calculo_cambio2()
+            calle2Cruce1 = i[1].calculo_cambio2()
+
+            if(calle1Cruce1 !=0 and calle2Cruce1 == 0):
+                i[0].setRojo(0)
+                i[1].setRojo(1)
+            elif(calle1Cruce1 == 0 and calle2Cruce1 != 0):
+                i[0].setRojo(1)
+                i[1].setRojo(0)
+            elif(calle1Cruce1 != 0 and calle2Cruce1 != 0):
+                if(calle1Cruce1 < calle1Cruce1):
+                    i[0].setRojo(0)
+                    i[1].setRojo(1)
+                else:
+                    i[0].setRojo(1)
+                    i[1].setRojo(0)
+            else:
+                i[0].setRojo(1)
+                i[1].setRojo(1)
+        if(len(i) == 1):
+            calle1Cruce1 = i[0].calculo_cambio2()
+            if(calle1Cruce1 == 0):
+                i[0].setRojo(1)
+            else:
+                i[0].setRojo(0)
+        if(len(i) == 3):
+            if (len(i) == 2):
+                calle1Cruce1 = i[0].calculo_cambio2()
+                calle2Cruce1 = max(i[1].calculo_cambio2(),i[2].calculo_cambio2())
+                if (calle1Cruce1 != 0 and calle2Cruce1 == 0):
+                    i[0].setRojo(0)
+                    i[1].setRojo(1)
+                    i[2].setRojo(1)
+                elif (calle1Cruce1 == 0 and calle2Cruce1 != 0):
+                    i[0].setRojo(1)
+                    i[1].setRojo(0)
+                    i[2].setRojo(0)
+                elif (calle1Cruce1 != 0 and calle2Cruce1 != 0):
+                    if (calle1Cruce1 < calle1Cruce1):
+                        i[0].setRojo(0)
+                        i[1].setRojo(1)
+                        i[2].setRojo(1)
+                    else:
+                        i[0].setRojo(1)
+                        i[1].setRojo(0)
+                        i[2].setRojo(0)
+                else:
+                    i[0].setRojo(1)
+                    i[1].setRojo(1)
+                    i[2].setRojo(1)
 
 def getPredictionSemafors(cuarto1):
     # Dante Can Mateu
@@ -137,7 +195,6 @@ def getPredictionSemafors(cuarto1):
         cuarto1.semaforo_maragalltelefonicaop.setRojo(0)
 
     # Tajo Inicio
-
     cap = neuralnet.prediction(cuarto1.semaforo_cap.get_Values())
     subidacap = neuralnet.prediction(cuarto1.semaforo_subidacap.get_Values())
     rieras = neuralnet.prediction(cuarto1.semaforo_cris.get_Values())
@@ -156,7 +213,6 @@ def getPredictionSemafors(cuarto1):
         cuarto1.semaforo_subidacap.setRojo(1)
 
     # Tajo Bajada de la Plana
-
     finalbajada = neuralnet.prediction(cuarto1.semaforo_bajadadelaplana.get_Values())
     chino = neuralnet.prediction(cuarto1.semaforo_despueschino.get_Values())
     fruteria = neuralnet.prediction(cuarto1.semaforo_fruteria.get_Values())
@@ -177,7 +233,7 @@ def getPredictionSemafors(cuarto1):
 
     # Tajo Maragall
     tajofinal = neuralnet.prediction(cuarto1.semaforo_tajoanais.get_Values())
-    maragallfinal = neuralnet.prediction(cuarto1.semaforo_maragallpunticoma.get_Values())
+    maragallfinal = neuralnet.prediction(cuarto1.semaforo_tajoanais.get_Values())
     samba = neuralnet.prediction(cuarto1.semaforo_samba.get_Values())
 
     if tajofinal >= maragallfinal and tajofinal >= samba:
@@ -277,7 +333,8 @@ def run():
         if iters > 120:
             actValuesSemafors(cuarto1)
             # Calcular los que han de cruzar en rojo
-            getPredictionSemafors(cuarto1)
+            #getPredictionSemafors(cuarto1)
+            getSemaforosStatic(cuarto1)
             # Actualizar los que cambien
             actSemafors(cuarto1)
             iters = 0

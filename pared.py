@@ -38,7 +38,12 @@ class Pared(pygame.sprite.Sprite):
         self.tPeatones = 0
         self.ultimocambio = 0
         self.rojo = 0 #En verde predeterminado
-
+    def calculo_cambio2(self):
+        valueCoche = 2 * self.t1Coche * (self.nCoches + self.nSalientes) - self.ultimocambio
+        valuePetones = 2 * self.tPeatones * (self.nPeatones//3 + 1) - self.ultimocambio
+        if(valuePetones > valueCoche):
+            return 0
+        return valueCoche
 
     def calculo_cambio(self):
         if self.rojo.__eq__(0):
